@@ -113,7 +113,7 @@
         <h3><a href="#robockey">Autonomous Hockey</a></h3>
         <h6>December 2012 - With <a href="http://www.linkedin.com/pub/jialue-huang/62/a7a/965">Jialue Huang, </a> <a href="http://www.linkedin.com/pub/jing-tang/62/850/3bb">Jing Tang</a> and <a href="http://www.linkedin.com/pub/cherng-ru-chuang/63/662/a50">Cherng-Ru (Dennis) Chuang</a></a>.</h6>
  
-        <p>In the final project of Mechatronic System Design (MEAM 510) groups of students built teams of three autonomous mobile robots to play hockey against one-another. </p>
+        <p>In the final project of Mechatronic System Design (MEAM 510) groups of students built teams of three autonomous mobile robots to play hockey against one-another. Our robots were conceptualized, mechanisms were prototyped, and the final hardware was assembled in a mere 4 weeks.  In addition, code for autonomous gameplay was written from the ground-up, tested, and improved in parallel with the hardware development.</p>
         <div class="flex-video">
         <iframe width="420" height="315" src="//www.youtube.com/embed/inIawVVcCBk" frameborder="0" allowfullscreen></iframe>
         </div>
@@ -121,35 +121,11 @@
         
         <div class="row">
           <div class="large-6 columns">
-            <p>The robots used infrared narrow-band phototransistors to detect the puck position, since the puck emits infrared light.  In addition, a small camera, obtained from inside a Nintendo Wii remote controller, was used for localization.  The camera was oriented toward the ceiling above the playing surface, where there was a cluster of LEDs in a fixed pattern.  As the robots moved they used the change in position and orientation of the LEDs to determine their own respective changes in position and orientation within the playing space.  Team mate Jing is in the video above, testing the robot's ability to localize and go to a specific position.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
-            <p> </p>
-            <p>All mechanical hardware, electronic hardware, and code was put together by our team.</p>
+            <p>Microcontrollers were used onboard each robot for receiving various sensor inputs and executing different plays according to a case structure.</P>
+            <p> </P>
+            <p>Each robot was equipped with a small camera, harvested from inside a Nintendo Wii remote controller, and repurposed for localization.  The camera was oriented toward the ceiling above the playing surface, where there was a cluster of LEDs in a fixed pattern.  As the robots moved they used the detected change in position and orientation of the LEDs on the ceiling to determine their own respective changes in position and orientation within the playing space.  Team mate Jing is in the video above, testing the robot's ability to localize and go to a specific position.</p>
+            <p> </P>
+            <p>Searching for the puck was accomplished by measuring light intensity values from a pair of phototransistors.  Since the puck was constantly emitting infrared light, it's relative position could be approximated by measuring the phototransistors' voltages.  The phototransistors' continuous voltage values were discretized by analog-to-digital converters, allowing a comparison to be made onboard the robot's microcontroller, which was in turn used to determine the robot's target orientation in the playing space.  </P>
           </div>
 
           <div class="large-6 columns">
