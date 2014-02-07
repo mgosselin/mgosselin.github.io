@@ -121,11 +121,13 @@
         
         <div class="row">
           <div class="large-6 columns">
-            <p>Microcontrollers were used onboard each robot for receiving various sensor inputs and executing different plays according to a case structure.</P>
+            <p>Microcontrollers were used onboard each robot for receiving multiple sensor inputs and executing different plays according to a case structure.</P>
             <p> </P>
             <p>Each robot was equipped with a small camera, harvested from inside a Nintendo Wii remote controller, and repurposed for localization.  The camera was oriented toward the ceiling above the playing surface, where there was a cluster of LEDs in a fixed pattern.  As the robots moved they used the detected change in position and orientation of the LEDs on the ceiling to determine their own respective changes in position and orientation within the playing space.  Team mate Jing is in the video above, testing the robot's ability to localize and go to a specific position.</p>
             <p> </P>
-            <p>Searching for the puck was accomplished by measuring light intensity values from a pair of phototransistors.  Since the puck was constantly emitting infrared light, it's relative position could be approximated by measuring the phototransistors' voltages.  The phototransistors' continuous voltage values were discretized by analog-to-digital converters, allowing a comparison to be made onboard the robot's microcontroller, which was in turn used to determine the robot's target orientation in the playing space.  </P>
+            <p>Searching for the puck was accomplished by measuring light intensity values from a pair of phototransistors.  Since the puck was constantly emitting infrared light, it's relative position could be approximated by measuring the phototransistors' voltages.  The phototransistors' continuous voltage values were discretized by analog-to-digital converters, allowing a comparison to be made onboard the robot's microcontroller.  The discretized quantities werecompared in order to determine the robot's target orientation in the playing space.  </P>
+            <p> </P>
+            <p>The electronic hardware was standardized across the robots, with every component pin-compatible and swappable.  This permitted very fast resolution of broken electronic hardware.  The mechanical hardware, however was unique across each of the three robots.  In addition, unique case-structures were used in each robot's programming, so that each robot could play a different 'role' in the miniature hockey tournament, in order to gain a strategic advantage over the competition.</P>
           </div>
 
           <div class="large-6 columns">
