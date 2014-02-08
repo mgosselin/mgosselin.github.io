@@ -309,7 +309,9 @@
         <h3><a href="#train">PID Control of Lego Trains</a></h3>
         <h6>March 2013 - With <a href="http://www.linkedin.com/pub/chao-qu/22/aab/4ab">Chao Qu</a>.</h6>
  
-        <p>PID control of a miniature lego train using an Arduino.  The <a href="https://github.com/mgosselin/MEAM513">code</a> can be found on GitHub.</p>
+        <p>The objective of this project was to design a classical controller to maintain a fixed following distance between two miniature lego trains.  However, the controller was required to also handle a 0.1 second time-delay imposed on the system output on the following train.  The lead train simply circled the track with fixed motor output, while the following train carried an ultrasonic distance sensor and an Arduino to measure distance and implement our controller.</p>
+
+        <p>Initially, we setup a simple proportional derivative controller to observe the system.  Without any modelling, or design effort it behaved a bit like this: </p>
         
         <div class="flex-video">
         <iframe width="420" height="315" src="//www.youtube.com/embed/3vBbpaUcssU" frameborder="0" allowfullscreen></iframe>
@@ -317,12 +319,16 @@
         <p> </p>
 
         <p>we sought a controller with good tracking performance and good disturbance rejection, over a broad range of lead train speeds. This posed a particular challenge because running the lead train at different speeds strongly affects the type of disturbance that is ‘seen’ by the following train. The friction change when transitioning from the straight track to the curved track is the source of this disturbance. At high speeds, the lead train’s forward motion is high, and the step-change in track friction at this transition has little effect on it’s velocity. Therefore, the following train ‘sees’ little or no velocity disturbance. </p>
-        
+
         <p>However at low lead-train speeds, the friction at the transition to the corner has a prominent effect, and creates a step-like decrease in speed (and conversely, a step increase, as the lead train exits the corner shortly after). The magnitude of the step disturbance varies with the lead train speed. For the purposes of this report, we considered two cases although our controller can handle all the in-between operating conditions as well: CASE 1: fast lead train speed; insignificant velocity-step-disturbances at corner transitions CASE 2: slow lead train speed; significant velocity-step-disturbances at corner transitions.</p>
+
+        <p>The result is shown in the video below.  Some integrator windup can still be observed, but disturbance rejection is greatly improved.  Also, the steady state distance error amplitude is minimized, and oscillation amplitude is low.  
 
         <div class="flex-video">
         <iframe width="560" height="315" src="//www.youtube.com/embed/1MTd_ycdrv0" frameborder="0" allowfullscreen></iframe>
         </div>
+
+        <p>The <a href="https://github.com/mgosselin/MEAM513">code</a> can be found on GitHub.</p>
       
       </article>
  
