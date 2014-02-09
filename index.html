@@ -39,7 +39,7 @@
         <h3><a href="#computer_vision">Automatic Image Stitching</a></h3>
         <h6>December 2013 - With Noam Eisen</h6>
  
-        <p>The objective of this project was to write code which could take in several images and 'stitch' them together, creating a result which appears natural to the eye.  At the core was the implementation of methods of automatic feature detection and automatic feature matching.  I implemented some of the methods presented in this <a href="http://research.microsoft.com/pubs/70120/tr-2004-133.pdf">article</a> by Brown, Szeliski and Winder.</p>
+        <p>In Computational Photography (CIS 581) at the University of Pennsylvania, I wrote some code for fully-automatic image stitching.  The objective was to take in several images and 'stitch' them together, creating a result which appears natural to the eye.  At the core was the implementation of methods of automatic feature detection and automatic feature matching.  I implemented some of the methods presented in this <a href="http://research.microsoft.com/pubs/70120/tr-2004-133.pdf">article</a> by Brown, Szeliski and Winder.</p>
         
         <div class="row">
           <div class="large-4 columns">
@@ -65,7 +65,7 @@
 
         <p>After using the matched pairs of features in the images, affine transformations were used to convert the center and right images into the frame of the left image.  Once transformed and overlayed, the edge regions become nearly unnoticeable, so further steps such as edge-smoothing were not necessary.</p>
         <p> </p>
-        <p><a href="https://github.com/mgosselin/CIS581">The project files</a> can be found on GitHub.</p>
+        <p>MATLAB was used throughout.   The project <a href="https://github.com/mgosselin/CIS581">files</a> can be found on GitHub.</p>
 
       </article>
 
@@ -78,22 +78,27 @@
         <h3><a href="#train">PID Control of Lego Trains</a></h3>
         <h6>March 2013 - With <a href="http://www.linkedin.com/pub/chao-qu/22/aab/4ab">Chao Qu</a>.</h6>
  
-        <p>The objective of this project was to design a classical controller to maintain a fixed following distance between two miniature lego trains.  However, the controller was required to also handle a 0.1 second time-delay imposed on the system output on the following train.  The lead train simply circled the track with fixed motor output, while the following train carried an ultrasonic distance sensor and an Arduino to measure distance and implement our controller.</p>
+        <p>The objective of this project was to design a classical controller to maintain a fixed following distance between two miniature lego trains.  However, the controller was required to also handle a 0.1 second time-delay imposed on the system output of the following train.  The lead train simply circled the track with fixed motor output, while the following train carried an ultrasonic distance sensor and an Arduino to measure distance and implement a control routine.</p>
 
-        <p>Initially, we setup a simple proportional derivative controller to observe the system.  Without any modelling, or design effort it behaved a bit like this: </p>
+        <p>Initially, we setup a simple proportional derivative controller to observe the system.  Without any modelling, or design effort it behaved like this: </p>
         
         <div class="flex-video">
         <iframe width="420" height="315" src="//www.youtube.com/embed/3vBbpaUcssU" frameborder="0" allowfullscreen></iframe>
         </div>
         <p> </p>
 
-        <p>we sought a controller with good tracking performance and good disturbance rejection, over a broad range of lead train speeds. This posed a particular challenge because running the lead train at different speeds strongly affects the type of disturbance that is ‘seen’ by the following train. The friction change when transitioning from the straight track to the curved track is the source of this disturbance. At high speeds, the lead train’s forward motion is high, and the step-change in track friction at this transition has little effect on it’s velocity. Therefore, the following train ‘sees’ little or no velocity disturbance. </p>
+        <p>We sought a controller with good tracking performance and good disturbance rejection, over a broad range of lead train speeds. This posed a particular challenge because running the lead train at different speeds strongly affects the type of disturbance that is ‘seen’ by the following train. The friction change when transitioning from the straight track to the curved track is the source of this disturbance. At high speeds, the lead train’s forward motion is high, and the step-change in track friction at this transition has little effect on it’s velocity. Therefore, the following train ‘sees’ little or no velocity disturbance. </p>
 
-        <p>However at low lead-train speeds, the friction at the transition to the corner has a prominent effect, and creates a step-like decrease in speed (and conversely, a step increase, as the lead train exits the corner shortly after). The magnitude of the step disturbance varies with the lead train speed. For the purposes of this report, we considered two cases although our controller can handle all the in-between operating conditions as well: CASE 1: fast lead train speed; insignificant velocity-step-disturbances at corner transitions CASE 2: slow lead train speed; significant velocity-step-disturbances at corner transitions.</p>
+        <p>However at low lead-train speeds, the friction at the transition to the corner has a prominent effect, and creates a step-like decrease in speed (and conversely, a step increase, as the lead train exits the corner shortly after). The magnitude of the step disturbance varies with the lead train speed. For the purposes of this report, we considered two cases although our controller can handle all the in-between operating conditions as well: We wanted to make a controller that could handle two extreme cases, plus all in-between cases.</p>
+
+        <p>CASE 1: fast lead train speed; insignificant velocity-step-disturbances at corner transitions.</p>
+        <p>CASE 2: slow lead train speed; significant velocity-step-disturbances at corner transitions.</p>
 
         <img src="img/train/simulink_model.png"/>
 
-        <p>The result is shown in the video below.  Some integrator windup can still be observed, but disturbance rejection is greatly improved.  Also, the steady state distance error amplitude is minimized, and oscillation amplitude is low.  
+        <p>The system was modelled in MATLAB Simulink, as shown in the diagram above.  The following train transfer function was determined experimentally.  The PID part of the controller was determined using the Zeigler-Nichols method.  The feed-forward term for friction compensation was determined by trial and error.  
+
+        <p>The final controller is shown in use in the video below.  Some integrator windup can still be observed, although it was limited.  Disturbance rejection is greatly improved.  Also, the steady state distance error amplitude is minimized, and oscillation amplitude is low.  
 
         <div class="flex-video">
         <iframe width="560" height="315" src="//www.youtube.com/embed/1MTd_ycdrv0" frameborder="0" allowfullscreen></iframe>
