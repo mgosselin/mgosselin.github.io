@@ -117,7 +117,7 @@
         <h3><a href="#pcb_making">Rapid PCB Prototyping</a></h3>
         <h6>February 2013 - June 2013 - With <a href="http://www.linkedin.com/pub/ryan-wilson/1b/19b/451">Ryan Wilson</a></h6>
  
-        <p>As an aside to some of my electronic hardware projects, I have also spent time developing methods for fast PCB prototyping and documenting them.  Fast, inexpensive prototyping is a great way to implement circuit designs quickly, so that many design iterations can be tested over a short period.  Here is a link to a <a href="https://alliance.seas.upenn.edu/~medesign/wiki/index.php/Guides/S62">wiki article</a> that I co-authored, as a reference and as an instructional resource for others.</p>
+        <p>As an aside to some of my past electronic hardware projects, I have workied with other mechatronics students to develop increasingly fast and practical PCB prototyping methods.  Fast PCB prototyping is valuable because it permits many design iterations over a short period, sometimes several in one day.  Here is a link to a <a href="https://alliance.seas.upenn.edu/~medesign/wiki/index.php/Guides/S62">wiki article</a> that I co-authored, as a reference and as an instructional resource for other mechatronics students.</p>
         
         <div class="flex-video">
         <iframe width="420" height="315" src="//www.youtube.com/embed/BnK9QVlT-gk" frameborder="0" allowfullscreen></iframe>
@@ -126,7 +126,7 @@
 
         <div class="row">
           <div class="large-6 columns">
-            <p>At Penn, the method of choice was micro-milling of copper-clad boards using an LPKF S62.  This permitted milling traces and drilling, but no solder mask placement.  In addition, through-hole plating was acheived with solder paste, a mask, and an oven.  Our system permitted traces as small as 8mil.  Although two-sided boards with through hole plating could be made, even faster prototyping was possible with single-sided designs, using only surface mount components.  This approach permitted very fast milling times (as little as 1 hour) and forgoes the through-hole plating steps. </p>
+            <p>The method shown involves micro-milling of copper-clad boards using an LPKF S62.  This permitted milling traces and drilling, but no solder mask placement.  In addition, through-hole plating was acheived separately, using solder paste, a mask, and an oven.  Our system permitted traces as small as 8 mil.  Although two-sided boards with through hole plating could be made, even faster prototyping was possible with single-sided designs, using only surface mount components.  This approach permitted very short milling times (as little as 1 hour) and forgoes the through-hole plating steps. </p>
           </div>
           <div class="large-6 columns">
             <img src="img/pcb_making/s62_0.jpg"/>
@@ -143,24 +143,37 @@
         <a id="mstereo"></a>
         <h3><a href="#mstereo">mStereo</a></h3>
         <h6>January 2013 - ongoing.</h6>
+
+        <p>mStereo is a two-channel digital-to-analog (DAC) converter for audio.  Is is a small part of an eventual comprehensive hardware solution for playback of digital audio files stored on computers, and (hopefully) mobile devices.</p>
+
+        <p>At present, the scope of the hardware has been limited to I2S-to-analog converter.  <a href="https://sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf">I2S</a>, introduced Philips, is a standard bus for inter-IC audio communication, with many practical benefits for hardware implementation, and ultimately, for user experience.</p>
+
+        <p>Since computer-based audio has become by far the most flexible and powerful way to store and play audio files, the task remains to develop hardware to accompany computers and provide the best possible user experience. Since I am so passionate about high-fidelity reproduction of audio recordings, developing my own high-performing hardware is rewarding on many fronts.</p>
+ 
+        <p>Practically, this means seeking the best possible hardware components (DAC ICs, oscillators, power supplies, etc.), integrating them, and ensuring their implementation permits their maximum specifications to be realized.</p>
  
         <div class="row">
-          <div class="large-6 columns">
-            <p>mStereo is a two-channel digital-to-analog (DAC) converter for audio.  Is is a small part of an eventual comprehensive hardware solution for playback of digital audio files stored on computers, and (hopefully) mobile devices.</p>
-
-            <p>At present, the scope of the hardware has been limited to I2S-to-analog converter.  <a href="https://sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf">I2S</a>, introduced Philips, is a standard bus for inter-IC audio communication, with many practical benefits for hardware implementation, and ultimately, for user experience.</p>
-
-            <p>Since computer-based audio has become by far the most flexible and powerful way to store and play audio files, the task remains to develop hardware to accompany computers and provide the best possible user experience. Since I am so passionate about high-fidelity reproduction of audio recordings, developing my own high-performing hardware is rewarding on many fronts.</p>
- 
-            <p>Practically, this means seeking the best possible hardware components (DAC ICs, oscillators, power supplies, etc.), integrating them, and ensuring their implementation permits their maximum specifications to be realized.</p>
-
+          <div class="large-4 columns">
+            <img src="img/mstereo/board1.jpg"/>
           </div>
-          <div class="large-6 columns">
+          <div class="large-4 columns">
+            <img src="img/mstereo/board2.jpg"/>
+          </div>
+          <div class="large-4 columns">
             <img src="img/mstereo/board3.jpg"/>
           </div>
         </div>
 
-        <br>
+        <div class="row">
+          <div class="large-6 columns">
+            <p>The hardware has gone through 3 iterations.  Each was fabricated and tested using the <a href="#pcb_making">rapid pcb prototyping</a> methods outlined above.  Parts were populated by hand, using solder paste, tweezers, and an oven.</p>
+          </div>
+          <div class="large-6 columns">
+            <img src="img/mstereo/pop1.jpg"/>
+          </div>
+        </div>
+
+        <!-- <p>Since computer-based audio has become by far the most flexible and powerful way to store and play audio files, the task remains to develop hardware to accompany computers and provide the best possible user experience. Since I am so passionate about high-fidelity reproduction of audio recordings, developing my own high-performing hardware is rewarding on many fronts.</p> -->
  
         <div class="row">
           <div class="large-6 columns">
