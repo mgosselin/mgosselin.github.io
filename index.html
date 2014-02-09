@@ -31,41 +31,107 @@
  
     <!-- Main Blog Content -->
     <div class="large-9 columns" role="content">
-      
-      <!-- Acrobat Project -->
+
+      <!-- Computer Vision -->
 
       <article>
-        <a id="acrobat"></a>
-        <h3><a href="#acrobat">Balancing Robot</a></h3>
-        <h6>October 2012 - With <a href="http://www.linkedin.com/in/mikelautman">Mike Lautman, </a> <a href="http://www.linkedin.com/pub/elizabeth-beattie/88/885/a16">Elizabeth Beattie</a> and <a href="http://www.linkedin.com/pub/yunkai-cui/63/a05/411">Yunkai (Edward) Cui</a>.</h6>
+        <a id="computer_vision"></a>
+        <h3><a href="#computer_vision">Automatic Image Stitching</a></h3>
+        <h6>December 2013 - With Noam Eisen</h6>
  
-        <p>In the fourth project of Mechatronic System Design (MEAM 510) our group built a two-wheeled balancing robot. The robot was designed to be battery powered, and able to hold both it's position and orientation (vertical) on both horizontal and inclined surfaces. </p>
-
-        <div class="flex-video">
-        <iframe width="560" height="315" src="//www.youtube.com/embed/g9hoRHFsPFs" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p> </p>
+        <p>The objective of this project was to write code which could take in several images and 'stitch' them together, creating a result which appears natural to the eye.  At the core was the implementation of methods of automatic feature detection and automatic feature matching.  I implemented some of the methods presented in this <a href="http://research.microsoft.com/pubs/70120/tr-2004-133.pdf">article</a> by Brown, Szeliski and Winder.</p>
         
         <div class="row">
-          <div class="large-6 columns">
-            <p>The robot used a MEMS accelerometer to measure it's angle of tile with respect to gravity.  The accelerometer module passed it's output to an Atemel Atmega 32u4 microcontroller serially, using I2C.  Using a feedback control routine on the microcontroller, and passing the output to two DC brushed motors, balancing was acheived.  Oscillation was minimized, and in the video above it is nearly unnoticeable because of the carpet beneath the wheels.</p>
+          <div class="large-4 columns">
+            <img src="img/computer_vision/quad08.jpg"/>
           </div>
-          <div class="large-6 columns">
-            <img src="img/acrobat/acrobat0.jpg" />
+          <div class="large-4 columns">
+            <img src="img/computer_vision/quad09.jpg"/>
+          </div>
+          <div class="large-4 columns">
+            <img src="img/computer_vision/quad10.jpg"/>
           </div>
         </div>
+        
+        <br>
+        <p>Shown above are three sample images which were taken with overlapping features.  </p>
 
+        <div class="row">
+          <div class="large-12 columns">
+            <img src="img/computer_vision/stitch_0.jpg"/>
+          </div>
+        </div>  
+        <br>
+
+        <p>After using the matched pairs of features in the images, affine transformations were used to convert the center and right images into the frame of the left image.  Once transformed and overlayed, the edge regions become nearly unnoticeable, so further steps such as edge-smoothing were not necessary.</p>
+        <p> </p>
+        <p><a href="https://github.com/mgosselin/CIS581">The project files</a> can be found on GitHub.</p>
+
+      </article>
+
+      <hr />     
+
+      <!-- Train Project -->
+
+      <article>
+        <a id="train"></a>
+        <h3><a href="#train">PID Control of Lego Trains</a></h3>
+        <h6>March 2013 - With <a href="http://www.linkedin.com/pub/chao-qu/22/aab/4ab">Chao Qu</a>.</h6>
+ 
+        <p>The objective of this project was to design a classical controller to maintain a fixed following distance between two miniature lego trains.  However, the controller was required to also handle a 0.1 second time-delay imposed on the system output on the following train.  The lead train simply circled the track with fixed motor output, while the following train carried an ultrasonic distance sensor and an Arduino to measure distance and implement our controller.</p>
+
+        <p>Initially, we setup a simple proportional derivative controller to observe the system.  Without any modelling, or design effort it behaved a bit like this: </p>
+        
         <div class="flex-video">
-        <iframe width="560" height="315" src="//www.youtube.com/embed/Tbr6DUvmqTA" frameborder="0" allowfullscreen></iframe>
+        <iframe width="420" height="315" src="//www.youtube.com/embed/3vBbpaUcssU" frameborder="0" allowfullscreen></iframe>
         </div>
         <p> </p>
 
-        <p>In addition, we built our own optical quadrature encoders using IR LEDs and phototransistors.  It's output gave a pair of square waves, out of phase by 1/3 period.  The green and blue LEDs in the video above allowed us to visualize the encoder output.  The encoders allowed us to determine both the rotation speed and direction of the wheels on the balancing robot, so that our feedback control loop could bring the robot to a stationary state.</p>
- 
+        <p>we sought a controller with good tracking performance and good disturbance rejection, over a broad range of lead train speeds. This posed a particular challenge because running the lead train at different speeds strongly affects the type of disturbance that is ‘seen’ by the following train. The friction change when transitioning from the straight track to the curved track is the source of this disturbance. At high speeds, the lead train’s forward motion is high, and the step-change in track friction at this transition has little effect on it’s velocity. Therefore, the following train ‘sees’ little or no velocity disturbance. </p>
+
+        <p>However at low lead-train speeds, the friction at the transition to the corner has a prominent effect, and creates a step-like decrease in speed (and conversely, a step increase, as the lead train exits the corner shortly after). The magnitude of the step disturbance varies with the lead train speed. For the purposes of this report, we considered two cases although our controller can handle all the in-between operating conditions as well: CASE 1: fast lead train speed; insignificant velocity-step-disturbances at corner transitions CASE 2: slow lead train speed; significant velocity-step-disturbances at corner transitions.</p>
+
+        <img src="img/train/simulink_model.png"/>
+
+        <p>The result is shown in the video below.  Some integrator windup can still be observed, but disturbance rejection is greatly improved.  Also, the steady state distance error amplitude is minimized, and oscillation amplitude is low.  
+
+        <div class="flex-video">
+        <iframe width="560" height="315" src="//www.youtube.com/embed/1MTd_ycdrv0" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <p>The <a href="https://github.com/mgosselin/MEAM513">code</a> can be found on GitHub.</p>
+      
       </article>
- 
+
       <hr />
+
+      <!-- PCB Prototyping -->
+
+      <article>
+        <a id="pcb_making"></a>
+        <h3><a href="#pcb_making">Rapid PCB Prototyping</a></h3>
+        <h6>February 2013 - June 2013 - With <a href="http://www.linkedin.com/pub/ryan-wilson/1b/19b/451">Ryan Wilson</a></h6>
+ 
+        <p>As an aside to some of my electronic hardware projects, I have also spent time developing methods for fast PCB prototyping and documenting them.  Fast, inexpensive prototyping is a great way to implement circuit designs quickly, so that many design iterations can be tested over a short period.  Here is a link to a <a href="https://alliance.seas.upenn.edu/~medesign/wiki/index.php/Guides/S62">wiki article</a> that I co-authored, as a reference and as an instructional resource for others.</p>
         
+        <div class="flex-video">
+        <iframe width="420" height="315" src="//www.youtube.com/embed/BnK9QVlT-gk" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p> </p>
+
+        <div class="row">
+          <div class="large-6 columns">
+            <p>At Penn, the method of choice was micro-milling of copper-clad boards using an LPKF S62.  This permitted milling traces and drilling, but no solder mask placement.  In addition, through-hole plating was acheived with solder paste, a mask, and an oven.  Our system permitted traces as small as 8mil.  Although two-sided boards with through hole plating could be made, even faster prototyping was possible with single-sided designs, using only surface mount components.  This approach permitted very fast milling times (as little as 1 hour) and forgoes the through-hole plating steps. </p>
+          </div>
+          <div class="large-6 columns">
+            <img src="img/pcb_making/s62_0.jpg"/>
+          </div>
+        </div>
+      
+      </article>
+
+      <hr />
+
       <!-- mstereo project -->
 
       <article>
@@ -102,6 +168,24 @@
           </div>
         </div>
  
+      </article>
+
+      <hr />
+
+      <!-- Hackathon -->
+
+      <article>
+        <a id="hackathon"></a>
+        <h3><a href="#hackathon">Hackathon Project: Skynet Command</a></h3>
+        <h6>January 2013 - With <a href="http://www.linkedin.com/in/mikelautman">Mike Lautman, </a> <a href="http://www.linkedin.com/pub/steven-xing/43/438/723">Steven Xing</a> and <a href="http://www.linkedin.com/pub/yunkai-cui/63/a05/411">Yunkai (Edward) Cui</a>.</h6>
+ 
+        <p><p>Our hackathon project from the PennApps Spring 2013 Hackathon.  Our project featured two remote controlled mobile robots that battle each other by shooting foam darts.  Both are controlled over the web, and carry a mobile phone (running Android 4.3) on top, permitting the users to stream video wirelessly and visualize their robot's persepective using the tokbok <a href="http://tokbox.com/opentok">OpenTok API</a>.  The <a href="https://github.com/sxing/Skynet">code</a> we put together during the hackathon can be found on GitHub.</p></p>
+        
+        <div class="flex-video">
+        <iframe width="560" height="315" src="//www.youtube.com/embed/QroL27ZyM_Y" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p> </p>
+      
       </article>
 
       <hr />
@@ -162,88 +246,38 @@
 
       <hr />
 
-      <!-- PCB Prototyping -->
+      <!-- Acrobat Project -->
 
       <article>
-        <a id="pcb_making"></a>
-        <h3><a href="#pcb_making">Rapid PCB Prototyping</a></h3>
-        <h6>February 2013 - June 2013 - With <a href="http://www.linkedin.com/pub/ryan-wilson/1b/19b/451">Ryan Wilson</a></h6>
+        <a id="acrobat"></a>
+        <h3><a href="#acrobat">Balancing Robot</a></h3>
+        <h6>October 2012 - With <a href="http://www.linkedin.com/in/mikelautman">Mike Lautman, </a> <a href="http://www.linkedin.com/pub/elizabeth-beattie/88/885/a16">Elizabeth Beattie</a> and <a href="http://www.linkedin.com/pub/yunkai-cui/63/a05/411">Yunkai (Edward) Cui</a>.</h6>
  
-        <p>As an aside to some of my electronic hardware projects, I have also spent time developing methods for fast PCB prototyping and documenting them.  Fast, inexpensive prototyping is a great way to implement circuit designs quickly, so that many design iterations can be tested over a short period.  Here is a link to a <a href="https://alliance.seas.upenn.edu/~medesign/wiki/index.php/Guides/S62">wiki article</a> that I co-authored, as a reference and as an instructional resource for others.</p>
-        
+        <p>In the fourth project of Mechatronic System Design (MEAM 510) our group built a two-wheeled balancing robot. The robot was designed to be battery powered, and able to hold both it's position and orientation (vertical) on both horizontal and inclined surfaces. </p>
+
         <div class="flex-video">
-        <iframe width="420" height="315" src="//www.youtube.com/embed/BnK9QVlT-gk" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="//www.youtube.com/embed/g9hoRHFsPFs" frameborder="0" allowfullscreen></iframe>
         </div>
         <p> </p>
-
+        
         <div class="row">
           <div class="large-6 columns">
-            <p>At Penn, the method of choice was micro-milling of copper-clad boards using an LPKF S62.  This permitted milling traces and drilling, but no solder mask placement.  In addition, through-hole plating was acheived with solder paste, a mask, and an oven.  Our system permitted traces as small as 8mil.  Although two-sided boards with through hole plating could be made, even faster prototyping was possible with single-sided designs, using only surface mount components.  This approach permitted very fast milling times (as little as 1 hour) and forgoes the through-hole plating steps. </p>
+            <p>The robot used a MEMS accelerometer to measure it's angle of tile with respect to gravity.  The accelerometer module passed it's output to an Atemel Atmega 32u4 microcontroller serially, using I2C.  Using a feedback control routine on the microcontroller, and passing the output to two DC brushed motors, balancing was acheived.  Oscillation was minimized, and in the video above it is nearly unnoticeable because of the carpet beneath the wheels.</p>
           </div>
           <div class="large-6 columns">
-            <img src="img/pcb_making/s62_0.jpg"/>
+            <img src="img/acrobat/acrobat0.jpg" />
           </div>
         </div>
-      
-      </article>
 
-      <hr />
-
-      <!-- Computer Vision -->
-
-      <article>
-        <a id="computer_vision"></a>
-        <h3><a href="#computer_vision">Automatic Image Stitching</a></h3>
-        <h6>December 2013 - With Noam Eisen</h6>
- 
-        <p>The objective of this project was to write code which could take in several images and 'stitch' them together, creating a result which appears natural to the eye.  At the core was the implementation of methods of automatic feature detection and automatic feature matching.  I implemented some of the methods presented in this <a href="http://research.microsoft.com/pubs/70120/tr-2004-133.pdf">article</a> by Brown, Szeliski and Winder.</p>
-        
-        <div class="row">
-          <div class="large-4 columns">
-            <img src="img/computer_vision/quad08.jpg"/>
-          </div>
-          <div class="large-4 columns">
-            <img src="img/computer_vision/quad09.jpg"/>
-          </div>
-          <div class="large-4 columns">
-            <img src="img/computer_vision/quad10.jpg"/>
-          </div>
-        </div>
-        
-        <br>
-        <p>Shown above are three sample images which were taken with overlapping features.  </p>
-
-        <div class="row">
-          <div class="large-12 columns">
-            <img src="img/computer_vision/stitch_0.jpg"/>
-          </div>
-        </div>  
-        <br>
-
-        <p>After using the matched pairs of features in the images, affine transformations were used to convert the center and right images into the frame of the left image.  Once transformed and overlayed, the edge regions become nearly unnoticeable, so further steps such as edge-smoothing were not necessary.</p>
-        <p> </p>
-        <p><a href="https://github.com/mgosselin/CIS581">The project files</a> can be found on GitHub.</p>
-
-      </article>
-
-      <hr />
-
-      <!-- Hackathon -->
-
-      <article>
-        <a id="hackathon"></a>
-        <h3><a href="#hackathon">Hackathon Project: Skynet Command</a></h3>
-        <h6>January 2013 - With <a href="http://www.linkedin.com/in/mikelautman">Mike Lautman, </a> <a href="http://www.linkedin.com/pub/steven-xing/43/438/723">Steven Xing</a> and <a href="http://www.linkedin.com/pub/yunkai-cui/63/a05/411">Yunkai (Edward) Cui</a>.</h6>
- 
-        <p><p>Our hackathon project from the PennApps Spring 2013 Hackathon.  Our project featured two remote controlled mobile robots that battle each other by shooting foam darts.  Both are controlled over the web, and carry a mobile phone (running Android 4.3) on top, permitting the users to stream video wirelessly and visualize their robot's persepective using the tokbok <a href="http://tokbox.com/opentok">OpenTok API</a>.  The <a href="https://github.com/sxing/Skynet">code</a> we put together during the hackathon can be found on GitHub.</p></p>
-        
         <div class="flex-video">
-        <iframe width="560" height="315" src="//www.youtube.com/embed/QroL27ZyM_Y" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="//www.youtube.com/embed/Tbr6DUvmqTA" frameborder="0" allowfullscreen></iframe>
         </div>
         <p> </p>
-      
-      </article>
 
+        <p>In addition, we built our own optical quadrature encoders using IR LEDs and phototransistors.  It's output gave a pair of square waves, out of phase by 1/3 period.  The green and blue LEDs in the video above allowed us to visualize the encoder output.  The encoders allowed us to determine both the rotation speed and direction of the wheels on the balancing robot, so that our feedback control loop could bring the robot to a stationary state.</p>
+ 
+      </article>
+ 
       <hr />
 
       <!-- Light Painting -->
@@ -300,39 +334,7 @@
       
       </article>
 
-      <hr />
-
-      <!-- Train Project -->
-
-      <article>
-        <a id="train"></a>
-        <h3><a href="#train">PID Control of Lego Trains</a></h3>
-        <h6>March 2013 - With <a href="http://www.linkedin.com/pub/chao-qu/22/aab/4ab">Chao Qu</a>.</h6>
- 
-        <p>The objective of this project was to design a classical controller to maintain a fixed following distance between two miniature lego trains.  However, the controller was required to also handle a 0.1 second time-delay imposed on the system output on the following train.  The lead train simply circled the track with fixed motor output, while the following train carried an ultrasonic distance sensor and an Arduino to measure distance and implement our controller.</p>
-
-        <p>Initially, we setup a simple proportional derivative controller to observe the system.  Without any modelling, or design effort it behaved a bit like this: </p>
-        
-        <div class="flex-video">
-        <iframe width="420" height="315" src="//www.youtube.com/embed/3vBbpaUcssU" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p> </p>
-
-        <p>we sought a controller with good tracking performance and good disturbance rejection, over a broad range of lead train speeds. This posed a particular challenge because running the lead train at different speeds strongly affects the type of disturbance that is ‘seen’ by the following train. The friction change when transitioning from the straight track to the curved track is the source of this disturbance. At high speeds, the lead train’s forward motion is high, and the step-change in track friction at this transition has little effect on it’s velocity. Therefore, the following train ‘sees’ little or no velocity disturbance. </p>
-
-        <p>However at low lead-train speeds, the friction at the transition to the corner has a prominent effect, and creates a step-like decrease in speed (and conversely, a step increase, as the lead train exits the corner shortly after). The magnitude of the step disturbance varies with the lead train speed. For the purposes of this report, we considered two cases although our controller can handle all the in-between operating conditions as well: CASE 1: fast lead train speed; insignificant velocity-step-disturbances at corner transitions CASE 2: slow lead train speed; significant velocity-step-disturbances at corner transitions.</p>
-
-        <img src="img/train/simulink_model.png"/>
-
-        <p>The result is shown in the video below.  Some integrator windup can still be observed, but disturbance rejection is greatly improved.  Also, the steady state distance error amplitude is minimized, and oscillation amplitude is low.  
-
-        <div class="flex-video">
-        <iframe width="560" height="315" src="//www.youtube.com/embed/1MTd_ycdrv0" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <p>The <a href="https://github.com/mgosselin/MEAM513">code</a> can be found on GitHub.</p>
       
-      </article>
  
     </div>
  
