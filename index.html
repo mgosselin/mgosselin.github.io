@@ -40,7 +40,7 @@
         <h3><a href="#computer_vision">Automatic Image Stitching</a></h3>
         <h6>December 2013 - With Noam Eisen</h6>
  
-        <p>In Computational Photography (CIS 581) at the University of Pennsylvania, I wrote some code for fully-automatic image stitching.  The objective was to take in several images and 'stitch' them together, creating a result which appears natural to the eye.  At the core was the implementation of methods of automatic feature detection and automatic feature matching.  I implemented some of the methods presented in this <a href="http://research.microsoft.com/pubs/70120/tr-2004-133.pdf">article</a> by Brown, Szeliski and Winder.</p>
+        <p>In Computational Photography (CIS 581) at the University of Pennsylvania, I developed code for fully-automatic image stitching.  The objective was to take in several images and 'stitch' them together, creating a result which appears natural to the eye.  At the core was the implementation of methods of automatic feature detection and automatic feature matching.  I implemented some of the methods presented in this <a href="http://research.microsoft.com/pubs/70120/tr-2004-133.pdf">article</a> by Brown, Szeliski and Winder.</p>
         
         <div class="row">
           <div class="large-4 columns">
@@ -309,12 +309,14 @@
 
       <article>
         <a id="light_painting"></a>
-        <h3><a href="#light_painting">Light Painting with an RRR Industrial Serial Manipulator.</a></h3>
+        <h3><a href="#light_painting">Light Painting with an Industrial Serial Manipulator.</a></h3>
         <h6>November 2012 - With <a href="http://www.linkedin.com/pub/chao-qu/22/aab/4ab">Chao Qu</a> and <a href="http://www.linkedin.com/pub/yunkai-cui/63/a05/411">Yunkai (Edward) Cui</a>.</h6>
 
         <div class="row">
           <div class="large-6 columns">
-            <p>Implemented both forward and inverse kinematic solutions control an industrial manipulator, using MATLAB.  The code is on this GitHub <a href="https://github.com/mgosselin/MEAM520">repository</a>.  The end effector was removed and instead equipped with an RGB LED.  The LED's intensity and color were varied as the end effector moved through a 2D plane in it's configuration space.  The objective was to resolve some familiar image.  The result is shown to the right.  </p>  
+            <p>The main project of MEAM 520 (Robotics) was to resolve some familiar image using a small 3-link industrial manipulator.  The robot we used was a Unimate Puma 260.  The end effector was removed and instead equipped with an RGB LED.  The LED's intensity and color were varied as the end effector moved through a 2D plane in the robot's configuration space. With the room lights off, and a camera recording, the resulting light painting was saved as an image file.</p>  
+
+            <p> Our group implemented both forward and inverse kinematic solutions control an industrial manipulator, using MATLAB. We downloaded an image from the internet and first discretized it into a grid of points, each with it's respective color information.  By generating a set of end-effector position and orientation vectors in the base frame of the robot, we could determine the necessary corresponding joint angles for resolving the target image.</p>
           </div>
           <div class="large-6 columns">
             <img src="img/light_painting/puma0.jpg"/>
@@ -323,13 +325,15 @@
         <br>
         <div class="row">
           <div class="large-6 columns">
-            <p>Implemented both forward and inverse kinematic solutions control an industrial manipulator, using MATLAB.  The code is on this GitHub <a href="https://github.com/mgosselin/MEAM520">repository</a>.  The end effector was removed and instead equipped with an RGB LED.  The LED's intensity and color were varied as the end effector moved through a 2D plane in it's configuration space.  The objective was to resolve some familiar image.  The result is shown to the right.  </p>
+            <p>The LED orientation was maintained always orthogonal to the plane of the image.  Since the camera was placed far back from the work space, and the result was cropped, a reasonably clear and recognizeable result was produced.  The result is shown to the right.</p>
           </div>
           <div class="large-6 columns">
             <img src="img/light_painting/puma1.JPG"/>
           </div>
         </div>
       
+      <p>The code is on this GitHub <a href="https://github.com/mgosselin/MEAM520">repository</a></p>
+
       </article>
 
       <!-- <hr /> -->
@@ -367,13 +371,13 @@
       <h5>Projects</h5>
       <ul class="side-nav">
         <li><a href="#computer_vision">Image Stitching</a></li>
-        <li><a href="#train">Classical control</a></li>
+        <li><a href="#train">Classical Control</a></li>
         <li><a href="#pcb_making">Rapid PCB Prototyping</a></li>
         <li><a href="#mstereo">mStereo</a></li>
         <li><a href="#hackathon">Hackathon: mobile robots</a></li>
         <li><a href="#robockey">Autonomous Hockey</a></li>
         <li><a href="#acrobat">Balancing Robot</a></li>
-        <li><a href="#light_painting">Light Painting</a></li>
+        <li><a href="#light_painting">Industrial Manipulator</a></li>
         <li><a href="#amp">Power Amplification</a></li>
 
       </ul>
