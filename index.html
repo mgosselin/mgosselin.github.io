@@ -295,7 +295,7 @@
             <p> </P>
             <p>Each robot was equipped with a small camera, harvested from inside a Nintendo Wii remote controller, and repurposed for localization.  The camera was oriented toward the ceiling above the playing surface, where there was a cluster of LEDs in a fixed pattern.  As the robots moved they used the detected change in position and orientation of the pattern on the ceiling to determine their own respective changes in position and orientation within the playing space.  Team mate Jing is in the video above, observing the robot's ability to localize and go to a specific position.</p>
             <p> </P>
-            <p>Searching for the puck was accomplished by measuring light intensity values from a pair of phototransistors.  Since the puck was constantly emitting infrared light, it's relative position could be approximated by measuring the phototransistors' voltages.  The phototransistors' continuous voltage values were discretized by analog-to-digital converters, onboard the robot's microcontroller.  The discretized quantities were compared in order to determine the robot's target orientation in the playing space.  </P>
+            <p>Searching for the puck was accomplished by measuring light intensity values from a pair of phototransistors.  Since the puck was constantly emitting infrared light, it's relative position could be approximated by measuring the phototransistors' voltages.  The phototransistors' continuous voltage values were discretized by analog-to-digital converters, onboard the robot's microcontroller.  The discretized quantities were compared in order to determine the puck's position in the playing space.  </P>
             <p> </P>
             <p>The electronic hardware was standardized across the robots, with every component pin-compatible and swappable.  This permitted very fast resolution of broken electronic hardware.  The mechanical hardware, however was unique across each of the three robots.  In addition, unique case-structures were used in each robot's programming, so that each robot could play a different 'role' in the miniature hockey tournament, in order to gain a strategic advantage over the competition.</P>
           </div>
@@ -377,16 +377,14 @@
             <p>The main project of MEAM 520 (Robotics) was to resolve some familiar image using a small 3-link industrial manipulator.  The robot we used was a Unimate Puma 260.  The end effector was removed and instead equipped with an RGB LED.  The LED's intensity and color were varied as the end effector moved through a 2D plane in the robot's configuration space. With the room lights off, and a camera recording, the resulting light painting was saved as an image file.</p>  
 
             <p> Our group implemented both forward and inverse kinematic solutions control an industrial manipulator, using MATLAB. We downloaded an image from the internet and first discretized it into a grid of points, each with it's respective color information.  By generating a set of end-effector position and orientation vectors in the base frame of the robot, we could determine the corresponding joint angles necessary for resolving the target image.</p>
+
+            <p>The LED orientation was maintained always orthogonal to the plane of the image.  Since the camera was placed far back from the work space, and the result was cropped, a reasonably clear and recognizeable result was produced.  The result is shown to the right.</p>
           </div>
+
           <div class="large-6 columns">
             <img src="img/light_painting/puma0.jpg"/>
           </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="large-6 columns">
-            <p>The LED orientation was maintained always orthogonal to the plane of the image.  Since the camera was placed far back from the work space, and the result was cropped, a reasonably clear and recognizeable result was produced.  The result is shown to the right.</p>
-          </div>
+          <br>  
           <div class="large-6 columns">
             <img src="img/light_painting/puma1.JPG"/>
           </div>
