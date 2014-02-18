@@ -117,12 +117,21 @@
 
         <div class="row">
           <div class="large-12 columns">
+            <img src="img/computer_vision/quad_matches.jpg"/>
+          </div>
+        </div>  
+        
+        <br>
+        <p>The images were compared against adjacent images and images feature matches were identified.  This is shown above, where the matching pairs of points corresponding to similar features are connected with different colored lines.  The features in the right image were used to estimate an affine transformation for transforming the right image into the frame of the left image.</p>
+
+        <div class="row">
+          <div class="large-12 columns">
             <img src="img/computer_vision/stitch_0.jpg"/>
           </div>
         </div>  
         <br>
 
-        <p>After using the matched pairs of features in the images, affine transformations were used to convert the center and right images into the frame of the left image.  Once transformed and overlayed, the edge regions become nearly unnoticeable, so further steps such as edge-smoothing were not necessary.</p>
+        <p>After calculating the affine transformations needed to convert the center and right images into the frame of the left image, the images were overlayed. In this example, the edge regions are nearly unnoticeable, so further steps such as edge-smoothing were not necessary.</p>
         <p> </p>
         <p>MATLAB was used throughout.   The project <a href="https://github.com/mgosselin/CIS581">files</a> can be found on GitHub.</p>
 
