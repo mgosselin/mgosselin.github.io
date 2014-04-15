@@ -114,9 +114,9 @@
           <div class="large-6 columns">
             <p>At present, mStereo is supported by two additional pieces of electronic hardware.  Both are open-source designs, which I chose to use as temporary stand-ins.  I will develop and implement my own designs to replace them at a later stage.</p>
 
-            <p>  At the input there is a <a href="http://www.amb.org/audio/gamma1/">γ1</a>, which uses a <a href="http://www.ti.com/lit/ds/sles081f/sles081f.pdf">Burr-Brown PCM2707</a> to convert from a computer's USB output (PCM audio) to I2S, wich is passed to mStereo's input.</p>
-
             <p>At the output, there is a balanced stereo preamplifier (above).  It features 6 MHz gain bandwidth and no phase distortion in the audio band, so it makes excellent test hardware.  It is suitable for headphones or connecting to a larger stereo power amplifier for use with loudspeakers.  The design is a combination of four <a href="http://www.amb.org/audio/alpha20/">a20 modules</a>, mounted on a backplane PCB which I designed and had fabricated (right).  This provides convenient signal trace-routing and power distribution for each of the modules.</p>
+
+            <p>  At the input there is a <a href="http://www.amb.org/audio/gamma1/">γ1</a>, which uses a <a href="http://www.ti.com/lit/ds/sles081f/sles081f.pdf">Burr-Brown PCM2707</a> to convert from a computer's USB output (PCM audio) to I2S, wich is passed to mStereo's input.</p>
 
           </div>
 
@@ -135,19 +135,7 @@
           </div>
         </div>  
 
-        <p>At present, the scope of the hardware has been limited to I2S-to-analog converter.  <a href="https://sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf">I2S</a>, introduced Philips is a standard bus for inter-IC audio communication, with many practical benefits for hardware implementation, and ultimately, for user experience.</p>
-
-        <p>Since computer-based audio has become by far the most flexible and powerful way to store and play audio files, the task remains to develop hardware to accompany computers and provide the best possible user experience. Since I am very serious about high-fidelity reproduction of audio recordings, developing my own high-performing hardware is rewarding on many fronts.</p>
- 
-        <p>Practically, this means seeking the best possible hardware components (DAC ICs, oscillators, power supplies, etc.), integrating them, and ensuring their implementation permits their maximum specifications to be realized.</p>
- 
-        <div class="row">
-          <div class="large-12 columns">
-            <img src="img/mstereo/board_combined.jpg"/>
-          </div>
-        </div>
-
-        <br>
+        <p>The scope of the hardware I have designed has been limited to an I2S-to-analog converter.  Introduced Philips, <a href="https://sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf">I2S</a>,  is a standard bus for inter-IC audio communication, with many practical benefits for hardware implementation, and ultimately, for user experience.</p>
 
         <div class="row">
           <div class="large-6 columns">
@@ -157,6 +145,18 @@
             <img src="img/mstereo/pop1.jpg"/>
           </div>
         </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <img src="img/mstereo/board_combined.jpg"/>
+          </div>
+        </div>
+
+        <p>Since computer-based audio has become by far the most flexible and powerful way to store and play audio files, the task remains to develop hardware to accompany computers and provide the best possible user experience. Since I am very serious about high-fidelity reproduction of audio recordings, developing my own high-performing hardware is rewarding on many fronts.</p>
+ 
+        <p>Practically, this means seeking the best possible hardware components (DAC ICs, oscillators, power supplies, etc.), integrating them, and ensuring their implementation permits their maximum specifications to be realized.</p>
+        
+        <br>
 
         <p>The next addition to mStereo will be the addition of an interface for converting PCM audio to I2S, so that mStereo will no longer rely on the γ1 to perform this conversion. This will support one of two common consumer hardware connections: either USB of S/PDIF. </p>
 
